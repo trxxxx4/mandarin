@@ -1,0 +1,34 @@
+.main__wrapper{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: var(--background);
+    min-height: 100lvh;
+}
+.main__container{
+    width: 85%;
+    min-height: 90%;
+    border: 1px solid black;
+}
+.authPole__wrapper{
+    display:flex;
+    justify-content: center;
+}
+.authContainer__wrapper{
+    display: flex;
+    justify-content: space-around;
+}
+.authPole__form{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    gap:1vh;
+}
+.input{
+    background-color: var(--background);
+    filter: hue-rotate(-15deg)
+    brightness(110%);
+border-radius: 3vh;
+height: 3vh;
+    width: 20vw;
+}

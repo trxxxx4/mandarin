@@ -1,0 +1,30 @@
+.main__wrapper{
+    background-color: orange;
+    display: flex;
+    min-height: 95lvh;
+    justify-content: center;
+width: 100%;
+}
+.main{
+    display: flex;
+    
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+}
+
+.main__grid__container{
+    display: grid;
+    width: calc((100vh*0.8));
+    aspect-ratio: 1/1;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3,1fr);
+}
+.main__grid__container__span{
+    text-align: center;
+    font-size: calc(var(--index)*4);
+    font-weight: 800;
+    color:white;
+    font-family: Arial, Helvetica, sans-serif;
+
+}

@@ -1,0 +1,30 @@
+.main__wrapper{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+.main{
+    display: flex;
+    flex-direction: column;
+    
+    
+}
+.main__a{
+    color: black;
+   text-decoration: none;
+   
+    
+}
+.main__input__title{
+    color: black
+}
+.card__h3{
+    color: black;
+}
+.card__h1{
+    color:black
+}
+.base64__image{
+    aspect-ratio: 1/1;
+    width: 20vw;
+}

@@ -1,0 +1,27 @@
+.header__wrapper{
+    display:flex;
+    width: 100%;
+    justify-content: center;
+    background-color: orange;
+height: 5lvh;
+}
+
+.header{
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    height: 100%;
+    align-items: center;
+    padding: 0px;
+}
+.header__li{
+    text-decoration: none;
+
+    list-style: none;
+    cursor: pointer;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+.header__a{
+    text-decoration: none;
+}
