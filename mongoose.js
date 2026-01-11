@@ -12,14 +12,14 @@ const UserSchema = new mongoose.Schema({
     lastestLoginRequest:Number
 })
 const UserCollection = mongoose.model('users', UserSchema)
-const DrinkSchema = new mongoose.Schema({
+const CardSchema = new mongoose.Schema({
     id:Number,
     title: String,
     volume:Number,
     composition:String,
     imageSrc : String
 })
-const DrinkCollection = mongoose.model('drinks',DrinkSchema)
+const CardCollection = mongoose.model('cards',CardSchema )
 const CardIdSchema = new mongoose.Schema({
     id:Number,
     commonId:Number  
@@ -33,7 +33,7 @@ const UserIdSchema = new mongoose.Schema({
 })
 const UserIdCollection = mongoose.model('userIds', UserIdSchema)
 module.exports = {
-    DrinkCollection,
+    CardCollection,
     UserCollection,
     UserIdCollection,
     CardIdCollection

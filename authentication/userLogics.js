@@ -1,8 +1,8 @@
 const express  = require("express")
 const router = express.Router()
 router.use(express.json())
-const {CardIdCollection, UserCollection, UserIdCollection} = require('./mongoose') 
-const {setJWT}= require('./checkJWT')
+const {CardIdCollection, UserCollection, UserIdCollection} = require('../mongoose') 
+const {setJWT}= require('../checkJWT')
 
 router.post('/auth', async (req, res)=>{
     const formReq = req.body
@@ -19,15 +19,14 @@ router.post('/auth', async (req, res)=>{
         const token = setJWT(data)
         
         res.json({username:data.username,
-        tokenStatus: 'tokenVerified',
         status:'authed',
         token :token,
         
         })
     }else{
         res.json({
-        status:'notAuthed',
-        tokenStatus: 'tokenVerified',  
+        status:'notAuthed'
+        
         })
     }
     
@@ -43,8 +42,8 @@ router.post('/registration', async (req, res)=>{
     if (data!=null){
         
         res.json({username:formReq.username,
-        status:'already exists',
-        tokenStatus: 'tokenVerified',
+        message:'already exists',
+        status:'registrationNotSuccess'
         })
     }else{
         const commonCnt = (await CardIdCollection.find({})).length 
@@ -59,9 +58,10 @@ router.post('/registration', async (req, res)=>{
             lastestLoginRequest:currentDate, role:'user', })
         
         res.json({
-        status:'registration excess',
-         username:`${formReq.username}` ,
-         tokenStatus: 'tokenVerified', 
+        message:'registration successed',
+        status:'registrationSuccess',
+        username:`${formReq.username}` 
+        
         })
     }
     

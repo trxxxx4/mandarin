@@ -1,39 +1,40 @@
-const {setTokenStatus} = require('./stateResponses')
+const express = require("express")
+const router = express.Router()
+router.use(express.json())
+const { setJWT, checkJWT } = require('./checkJWT')
 
-const checkValidJWT = (req,res,next)=>{
-    try{
-        const token = req.headers.authorization?.split(' ')[1]
-        if (token==undefined){
-            req.tokenStatus = 'noToken'
-        }else {
-            const result = setTokenStatus(token)
-            req.tokenStatus = result.result
-            req.data = result.data
-            
-        } 
-        next()
-    } catch (error) {
-        throw new Error('error')
-    }
-}
-const preResponse = (req, res, next) =>{
-    try{
-        switch (req.tokenStatus){
-            case 'invalidToken':
-                res.json({tokenStatus:'invalidToken'})
-                break
-            case 'noToken':
-                res.json({tokenStatus:'noToken'})
-                break
-            case 'tokenVerified':
-                req.tokenStatus='tokenVerified'
-                
-                next()
+const JWTinitial = (req, res, next) => {
+    const token = req.headers.authorization?.split(' ')[1]
+    if (token == undefined) {
+        req.tokenStatus = 'noToken'
+        console.log(11)
+        return res.status(401).json({ error: 'noToken' })
+    } else {
+        const JWTcheckedToken = checkJWT(token)
+        const currentTime = new Date().getTime()
+        if (JWTcheckedToken == '') {
+            req.tokenStatus = 'invalidToken'
+            console.log(22)
+            return res.status(401).json({ error: 'invalidToken' })
+        } else if (currentTime) {
+            req.tokenStatus = 'tokenVerified'
+            req.token = JWTcheckedToken
+            req.userRole = JWTcheckedToken.role
+            next()
         }
-    }  catch (error) {throw new Error(error)}
-}
+        else {
+            req.tokenStatus = 'invalidToken'
+            console.log(22)
+            return res.status(401).json({ error: 'tokenExpNotValid' })
+        }
 
+
+
+
+    }
+
+
+}
 module.exports = {
-    checkValidJWT,
-    preResponse
+    JWTinitial
 }

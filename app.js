@@ -8,9 +8,9 @@ const cors = require('cors')
 const multer = require('multer')
 const path = require('path')
 const cardsRouter = require('./cardsLogic.js')
-const userRouter = require('./userLogics.js')
-
-
+const userRouter = require('./authentication/userLogics.js')
+const profileRouter = require('./profile/profileLogic.js')
+const { JWTinitial } = require("./middleware")
 const corsControls = {
     origin: "http://localhost:4000",
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
@@ -20,9 +20,9 @@ const corsControls = {
 
 app.use(cors(corsControls))
 
-app.use('/profile', checkValidJWT, preResponse)
-app.use('/profile', cardsRouter)
-app.use('/user', userRouter)
+
+app.use('/api/profile', JWTinitial, profileRouter)
+app.use('/api/authentication', userRouter)
 
 
 

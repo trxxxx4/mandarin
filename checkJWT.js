@@ -24,18 +24,15 @@ const base64UrlDecoding = (base64url) =>{
 }
 
 const checkJWT = (token)=>{
-    const [headerBase64url, payloadBase64url, signatureBase64url] = 
-    token.split('.')
-    const expectedData = `${base64UrlDecoding(headerBase64url)}.${base64UrlDecoding(payloadBase64url)}`
+    const [headerBase64url, payloadBase64url, signatureBase64url] = token.split('.')
+    const expectedData = `${headerBase64url}.${payloadBase64url}`
     let expectedSignature = crypto
         .createHmac('sha256', secretKey)
         .update(expectedData)
         .digest('base64')
     expectedSignature = base64UrlEncoding(expectedSignature)
         if (signatureBase64url!=expectedSignature){
-        const status = 'invalidSignature'
-        
-        return status
+        return ''
     }  
     const data = dataFromBase64(base64UrlDecoding(payloadBase64url))
     return data
@@ -50,7 +47,7 @@ const setJWT = (userData)=>{
     userData = {
         ...userData,
         iat: currentTime,
-        exp: currentTime +(600*1000)
+        exp: currentTime +(60*1000)
         
     }
     const headerEncoded = base64UrlEncoding(dataToBase64(header))
