@@ -7,35 +7,26 @@
 
 *{
   margin:0px;
-  color:white;
+  
   font-family: Arial, Helvetica, sans-serif;
 
 }
+
 :root {
+    
+    --authtorizationTransition: 400ms;
+    --scroll-lock: auto;
   --background: rgb(80, 132, 22);
   --foreground: #171717;
-  
-  --index: calc(1vh + 1vw);
+  --whiteColor : white;
+  --blackColor : black;
+  --blackColorTransparent : rgba(0,0,0,0.5);
+  --grayColor: rgb(204,204,204);
+  --orangeColor: orange;
+  --greenColor : rgb(80, 232, 22);
+  --grayColorTransparent : rgba(204,204,204, 0.5);
+    --index: calc(1vh + 1vw);
+    --headerHeight: calc(5lvh);
   
 }
 
-.file__input{
-  display: none;
-}
-.button{
-  display: flex;
-  width: min-content;
-  padding: calc(var(--index)*0.7);
-  background-color: var(--foreground);
-  color: var(--background);
-  
-  cursor: pointer;
-  -webkit-user-select: none; /* Для Safari */
-    -moz-user-select: none;    /* Для Firefox */
-    -ms-user-select: none;     /* Для IE/Edge */
-    user-select: none;         /* Стандартный */
-  
-}
-.card{
-  padding-bottom: 5vh;
-}

@@ -1,4 +1,5 @@
 'use client'
+import '../globals.css'
 import { createContext } from "react";
 import { useEffect, useState } from "react";
 import { getAuthInfo, postAuthInfo } from "..";
@@ -19,9 +20,6 @@ export function GlobalProvider({children}){
         window.localStorage.setItem('token',token)
         setUserName(username)
         window.localStorage.setItem('username',username)
-
-
-
     }
     
     const logout = ()=>{
@@ -30,7 +28,6 @@ export function GlobalProvider({children}){
         window.localStorage.removeItem('username')
         setGlobalAuthStatus('notAuthed')
         setUserName('')
-
     }
 
     
@@ -51,11 +48,17 @@ export function GlobalProvider({children}){
         
     },[])
     
+    
+
+
 
 
 
     return (
-    <GlobalContext.Provider value={{userName, globalAuthStatus, login, logout}}>
+    <GlobalContext.Provider value={{userName, globalAuthStatus, login,
+            logout,
+            
+        }}>
       {children}
     </GlobalContext.Provider>
     )

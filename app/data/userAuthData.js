@@ -1,13 +1,13 @@
 'use client'
 import { useContext } from "react"
 import { GlobalContext } from "../context/context"
-
+import { route } from "./route"
 
 const deleteAuthInfo = async ()=>{
   
 }
 
-const postAuthInfo = async (path,username, password) => {
+const postAuthInfo = async (username, password) => {
       const currentTime = new Date()
       const reqForm = {
       username: username,
@@ -17,7 +17,7 @@ const postAuthInfo = async (path,username, password) => {
       
       console.log(currentTime) 
     try {
-      const response = await fetch(`http://localhost:3000/user/${path}`, {
+      const response = await fetch(`${route}/api/authentication/auth`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(reqForm)
@@ -34,6 +34,36 @@ const postAuthInfo = async (path,username, password) => {
 
   }
 
+const postRegistrationInfo = async (username, password) => {
+      const currentTime = new Date()
+      const reqForm = {
+      username: username,
+      password: password,
+      registrationTime: currentTime
+      }
+      
+      console.log(currentTime) 
+    try {
+      const response = await fetch(`${route}/api/authentication/registration`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(reqForm)
+      
+
+      })
+      
+      if (!response.ok) { throw new Error(`HTTP ${response.status}`) }
+      const data = await response.json()
+      console.log(data)
+      return data
+
+    } catch (error) { console.log(error) }
+
+  }
+
+
+
+
 const getAuthInfo = async () => {
     try {
       const response = await fetch('http://localhost:3000/auth')
@@ -46,5 +76,6 @@ const getAuthInfo = async () => {
 export {
       getAuthInfo,
       deleteAuthInfo,
-      postAuthInfo
+      postAuthInfo,
+      postRegistrationInfo
 }

@@ -1,0 +1,35 @@
+.loader__wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: calc(100lvh - var(--headerHeight));
+    background-color: var(--whiteColor);
+    position: fixed;
+    overflow-y: hidden;
+    left: 0px;
+    top: calc(var(--headerHeight))
+    
+
+}
+.loader__container{
+
+}
+.loader__image{
+    background-image: url('../../../public/mandarin1500.png');
+    animation: loadingAnimation 1s linear infinite;
+    background-size: contain;
+background-repeat: no-repeat;
+background-position: center;
+    height: 10vh;
+
+    aspect-ratio: 1/1;
+}
+@keyframes loadingAnimation {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}

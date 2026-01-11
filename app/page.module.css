@@ -1,9 +1,11 @@
 .main__wrapper{
-    background-color: orange;
+    background-color: var(--orangeColor);
     display: flex;
-    min-height: 95lvh;
+    min-height: calc(100lvh - var(--headerHeight));
     justify-content: center;
 width: 100%;
+cursor: url('/mandarin32.png') 8 8, auto;
+
 }
 .main{
     display: flex;
@@ -24,7 +26,7 @@ width: 100%;
     text-align: center;
     font-size: calc(var(--index)*4);
     font-weight: 800;
-    color:white;
+    color:var(--whiteColor);
     font-family: Arial, Helvetica, sans-serif;
 
 }

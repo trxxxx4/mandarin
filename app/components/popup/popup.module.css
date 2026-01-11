@@ -1,0 +1,40 @@
+.popup__wrapper{
+     width: 100vw;
+    height: calc(100lvh -  var(--headerHeight));
+    left: 0px;
+    background-color: var(--blackColorTransparent);
+    position: fixed;
+    overflow-y: hidden;
+}
+.popup__container{
+    position:fixed;
+    display: flex;
+    left: 50%;
+    justify-content: center;
+    gap:calc(var(--index)*1);
+    top:50%;
+    transform: translateY(-50%)
+            translateX(-50%)
+    ;
+    
+    background-color: var(--whiteColor);
+    border-radius: calc(var(--index)*2);   
+}
+.popup__pole__wrapper{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    padding: calc(var(--index)*1) 0px calc(var(--index)*1) 0px;
+    gap:calc(var(--index)*1);
+
+}   
+.popup__pole__cancelButton{
+    align-self: flex-end;
+    background-image: url('../../../public/close.svg');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 40px;
+    cursor:pointer;
+    aspect-ratio: 1/1;
+}

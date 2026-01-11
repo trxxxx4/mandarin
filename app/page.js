@@ -1,11 +1,11 @@
 'use client'
-import { useContext } from "react"
-import { GlobalContext } from "./context/context"
+
 import styles from './page.module.css'
 export default function Home() {
-  const { login, logout, globalAuthStatus } = useContext(GlobalContext)
+
 
   return (
+    <>
     <div className={styles.main__wrapper}>
       <div className={styles.main}>
         <div className={styles.main__grid__container}>
@@ -20,5 +20,8 @@ export default function Home() {
         </div>
       </div>
     </div>
+
+    
+</>
   )
 }

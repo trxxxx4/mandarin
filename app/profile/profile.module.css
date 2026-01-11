@@ -2,29 +2,218 @@
     display: flex;
     width: 100%;
     justify-content: center;
+    /* background: linear-gradient(90deg, rgb(161, 157, 157), rgba(255,240,255,0.5));
+     */
+    min-height: calc(100lvh -  var(--headerHeight));
+     
 }
 .main{
     display: flex;
     flex-direction: column;
+    width: 85%;
     
+}
+.background{
+    width: 100vw;
+    height: 10  var(--headerHeight);
+    background-image: url('../../public/blueBG.jpg');
+    background-size: cover;
+    background-position: center;
+    position: fixed;
+    top:-  var(--headerHeight);
+    z-index: -1;
+    background-repeat: no-repeat;
+    filter: blur(7px) brightness(150%);
     
+}
+.input__container__wrapper{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
 }
 .main__a{
-    color: black;
+    color: var(--blackColor);
    text-decoration: none;
    
+}
+#input__button{
+    width: min-content;
     
 }
+
+.profileInterfaceInfo__wrapper{
+    display: flex;
+    max-width: calc(85vw);
+    min-height: 10vh;
+    justify-content: space-between;
+    padding:  var(--headerHeight) 5vw 5vw  var(--headerHeight);
+    border-radius:  5vh;
+    background-color: var(--whiteColor);
+}
 .main__input__title{
-    color: black
+    color: var(--blackColor);
+   
 }
 .card__h3{
-    color: black;
+    color: var(--blackColor);
+}
+.button{
+    display: flex;
+  width: fit-content;
+  border-radius: calc(var(--index)*1);
+  padding: calc(var(--index)*0.7);
+  background-color: var(--foreground);
+  color: var(--background);
+  
+  cursor: pointer;
+  -webkit-user-select: none; /* Для Safari */
+    -moz-user-select: none;    /* Для Firefox */
+    -ms-user-select: none;     /* Для IE/Edge */
+    user-select: none;         /* Стандартный */
 }
 .card__h1{
-    color:black
+    color:var(--blackColor)
 }
-.base64__image{
+.cardsList__wrapper{
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+gap: calc(var(--index)*2);
+
+}
+.card{
+   display: flex;
+   min-width: min-content;
+   flex-direction: column;
+   align-items: center; 
+}
+.change__card__image{
     aspect-ratio: 1/1;
-    width: 20vw;
+    width: calc(var(--index)*10) ;
+}
+.change__card__form{
+    display: flex;
+    flex-direction: column;
+}
+.textarea{
+    color: var(--blackColor);
+    width: 45%;
+
+    min-height: calc(var(--index)*1);
+    height: calc(var(--index)*2);
+    
+    border: 1px solid var(--grayColor);
+    border-radius: 4px;
+    
+    outline-style: none;
+    resize: none;
+   
+}
+.input__form{
+    display: flex;
+    gap: 4vh;
+    flex-direction: column;
+}
+.file__input{
+    display: none;
+}
+.preview__image{
+ width: 40%;  
+ aspect-ratio: 1/1;
+}
+.preview__image__alt{
+    border: 1px solid var(--grayColor);
+    border-radius: 4px;
+    aspect-ratio: 1/1;
+    
+    width: 40%;   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.preview__image__alt__title{
+    color: var(--grayColor);
+    text-align: center;
+}
+.form__mainButtons__wrapper{
+    padding: calc(var(--index)*3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: calc(var(--index)*2);
+}
+
+.title__and__button__wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--index)*1)
+}
+
+
+
+.delete__confirm__title{
+    text-align: center;
+}
+.delete__confirm__pole{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:2vh;
+}
+
+.change__confirm__pole{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:2vh;
+    width: 90%;
+}
+
+.change__card{
+    display: flex;
+   width: 70vw;
+   flex-direction: column;
+   align-items: center; 
+   gap: 1vh;
+}
+
+.change__textarea{
+    resize: none;
+}
+
+
+.selection_wrapper{
+    height: min-content;
+    width: 100%;
+    border-radius: 30px;
+    border: 1px solid var(--grayColor);
+    display: grid;
+    grid-auto-rows: calc(15vw);
+    grid-template-columns: repeat(5,1fr);
+    grid-gap: 10px;
+    grid-auto-flow: row dense;
+    padding: 10px 10px 10px 10px;
+    
+
+}
+.selection_item{
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--blackColorTransparent);
+}
+.selection_item_user_info{
+    grid-column: span 2;
+    grid-row: span 2;
+}
+.selection_item_inner_column{
+    flex-direction: column;
+    gap: 20px;
+    display: flex;
+}
+.selection_item_text{
+    text-align: center;
 }

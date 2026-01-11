@@ -1,0 +1,43 @@
+.notification__color1{
+    background-color: var(--orangeColor);
+}
+
+.notification{
+    position: fixed;
+    background-color: var(--whiteColor);
+    border-radius: calc(var(--index)*1);
+    left: 50%;
+    transform: translateX(-50%);
+    border: 1px solid var(--grayColor);
+    z-index: 2;
+    opacity: 0;
+    bottom: calc(var(--headerHeight));
+    user-select: none;
+    animation: disappearingNotification 4s linear;
+}
+
+@keyframes disappearingNotification {
+    0%{
+        opacity: 0;
+        transform: translateX(-50%) translateY(calc(var(--index)*0.5));
+    }
+    5%{
+        opacity: 1;
+        transform: translateX(-50%) translateY(0px);
+    }
+    80%{
+        opacity: 1;
+        transform: translateX(-50%) translateY(0px);
+    }
+    100%{
+        opacity: 0;
+        transform: translateX(-50%) translateY(calc(var(--index)*0.5));
+    }
+}
+
+
+.notification__title{
+    padding: calc(var(--index)*0.5);
+    text-align: center;
+}
+

@@ -1,0 +1,8 @@
+.main{
+    padding-top: calc(  var(--headerHeight));
+    height: (calc(100lvh -  var(--headerHeight)));
+    
+}
+.main__disabled{
+    overflow-y: hidden;
+}
